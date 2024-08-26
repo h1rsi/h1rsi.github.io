@@ -1,0 +1,128 @@
+/* Base styles for the body and container */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Fira Code', monospace;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    position: relative; 
+}
+
+/* Modern typography for the name with a thin underline */
+.name {
+    font-size: 5rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 700; 
+    color: #d16969;
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* Thin line under the name */
+.name::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px; 
+    width: 0;
+    height: 3px;
+    background: #d16969; 
+    transition: width 0.4s ease; 
+}
+
+/* Expand underline on hover */
+.name:hover::after {
+    width: 100%; 
+}
+
+.typing-animation {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #9e9e9e; 
+    font-weight: 400;
+    letter-spacing: 1px;
+    display: inline-flex; 
+    position: relative; 
+}
+
+.typing-animation .text {
+    display: inline; 
+}
+
+.typing-animation .cursor {
+    display: inline-block;
+    width: 0.6em; 
+    height: 1.2em; 
+    border-left: 2px solid #d16969; 
+    margin-left: 2px; 
+    animation: pulsate 1s ease-in-out infinite; 
+    vertical-align: middle; 
+}
+
+/* Pulsating animation */
+@keyframes pulsate {
+    0%, 100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scaleY(1.5);
+    }
+}
+
+/* GitHub icon styling */
+.github-link {
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    left: 50%; 
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: #d4d4d4;
+    transition: color 0.3s ease, background 0.6s ease; 
+    border-radius: 50%; 
+    padding: 0.5rem; 
+    z-index: 10; 
+}
+
+.github-link .fab {
+    font-size: 3rem;
+    position: relative; 
+}
+
+/* GitHub button hover effect */
+.github-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, #d16969, #b71c1c); 
+    border-radius: 50%;
+    transition: opacity 0.6s ease;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 0; 
+}
+
+.github-link:hover::before {
+    opacity: 1; 
+}
+
+.github-link:hover .fab {
+    color: #ffffff; 
+    z-index: 1; 
+}
